@@ -1,15 +1,84 @@
+const container = document.querySelector('#container');
+
+  const scoreTable = document.createElement('div');
+   scoreTable.classList.add('scoreTable');
+   scoreTable.textContent = "This is for scores";
+container.appendChild(scoreTable);
+
+let playerScore = 0;
+let computerScore = 0;
+
 const computerChoices = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice(){
    let computerSelection = computerChoices[Math.floor(Math.random() * 3)];
    return computerSelection;
-}
+};
 
-console.log(getComputerChoice());
+//console.log(getComputerChoice());
 
 
-let playerSelection = prompt('Please enter a choice');
+//let playerSelection = prompt('Please enter a choice');
 /*let computerSelection = 'scissors';*/
+
+
+//document.getElementById("rockSelect").onclick = selectRock;
+
+function selectRock(){
+    let playerSelection = 'rock';
+    if(playerScore >= 5){
+        scoreTable.textContent = `You Win! final score is ${playerScore} to ${computerScore}`;
+    }else if(computerScore >= 5){
+        scoreTable.textContent = `You lose! final score is ${playerScore} to ${computerScore}`;
+    }else{
+             if(playRound(playerSelection, getComputerChoice()) == 1){
+               playerScore = playerScore + 1;
+               scoreTable.textContent = `score is ${playerScore} to ${computerScore}`;
+              }else if(playRound(playerSelection, getComputerChoice()) == 0){
+                computerScore = computerScore + 1;
+               scoreTable.textContent = `score is ${playerScore} to ${computerScore}`;
+               }else 
+          scoreTable.textContent = `That was a draw. score is ${playerScore} to ${computerScore}`;
+            };
+};
+
+function selectScissor(){
+    let playerSelection = 'scissors';
+    if(playerScore >= 5){
+        scoreTable.textContent = `You Win! final score is ${playerScore} to ${computerScore}`;
+    }else if(computerScore >= 5){
+        scoreTable.textContent = `You lose! final score is ${playerScore} to ${computerScore}`;
+    }else{
+             if(playRound(playerSelection, getComputerChoice()) == 1){
+               playerScore = playerScore + 1;
+                scoreTable.textContent = `score is ${playerScore} to ${computerScore}`;
+              }else if(playRound(playerSelection, getComputerChoice()) == 0){
+               computerScore = computerScore + 1;
+              scoreTable.textContent = `score is ${playerScore} to ${computerScore}`;
+              }else 
+             scoreTable.textContent = `That was a draw. score is ${playerScore} to ${computerScore}`;
+        };
+};
+
+function selectPaper(){
+    let playerSelection = 'paper';
+    if(playerScore >= 5){
+        scoreTable.textContent = `You Win! final score is ${playerScore} to ${computerScore}`;
+    }else if(computerScore >= 5){
+        scoreTable.textContent = `You lose! final score is ${playerScore} to ${computerScore}`;
+    }else{
+             if(playRound(playerSelection, getComputerChoice()) == 1){
+               playerScore = playerScore + 1;
+                scoreTable.textContent = `score is ${playerScore} to ${computerScore}`;
+              }else if(playRound(playerSelection, getComputerChoice()) == 0){
+               computerScore = computerScore + 1;
+              scoreTable.textContent = `score is ${playerScore} to ${computerScore}`;
+              }else 
+             scoreTable.textContent = `That was a draw. score is ${playerScore} to ${computerScore}`;
+        };
+
+};
+//document.getElementById("scissorSelect").onclick = selectRock();
 
 
 function playRound(playerSelection, computerSelection){
@@ -33,10 +102,12 @@ function playRound(playerSelection, computerSelection){
     }
     };
 
+
+   // console.log(playRound(playerSelection, getComputerChoice()));
 /*console.log(playRound(playerSelection, getComputerChoice()));*/
 
 
-function game(playerSelection){
+/*function game(playerSelection){
 
     let playerScore = 0;
     let computerScore = 0;
@@ -64,4 +135,6 @@ function game(playerSelection){
     }
 };
 
-console.log(game(playerSelection));
+console.log(game(playerSelection));*/
+
+
